@@ -6,16 +6,22 @@ namespace ALGORITMIZATION_Rabots
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Значение аргумента:                Значение функции:");
-            double a, b, n, h, f;
-            a = -1 * (Math.PI / 6);
-            b = (Math.PI / 6);
-            n = 15;
-            h = (b - a) / n;
-            for (double i = a; i <= b; i += h)
+            double a, b, c;
+            Console.WriteLine("Введите a:");
+            a = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Введите b:");
+            b = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Введите c:");
+            c = Convert.ToDouble(Console.ReadLine());
+            if (a >= b && b >= c)
             {
-                f = 2 * Math.Cos(5 * i) - 3;
-                Console.WriteLine(i + "                " + f);
+                a -= 5;
+                b -= 5;
+                c -= 5;
+                Console.WriteLine($"а = {a}, b = {b}, c = {c}");            }
+            else
+            {
+                Console.WriteLine((a + b + c) / 2);
             }
         }
     }
