@@ -6,12 +6,12 @@ namespace ALGORITMIZATION_Rabots
     {
         public static void Main(string[] args)
         {
-            Double x, y, z;
+            double x, y;
             Console.WriteLine("Введите x:");
             x = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Введите y:");
             y = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine((2 * (1 / Math.Tan(3 * x))) - ((12 * Math.Pow(x, 2) + 7 * x - 5) / y));
+            Console.WriteLine(Math.Pow(2, -x) - Math.Sin(x) + Math.Cos(2 * x * y));
         }
     }
 }
