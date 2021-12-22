@@ -6,32 +6,16 @@ namespace ALGORITMIZATION_Rabots
     {
         public static void Main(string[] args)
         {
-            Random rnd = new Random();
-            int[] mas = new int[12];
-            int res = 1;
-            for(int i = 0; i < 12; i++)
+            Console.WriteLine("Значение аргумента:                Значение функции:");
+            double a, b, n, h, f;
+            a = -1 * (Math.PI / 6);
+            b = (Math.PI / 6);
+            n = 15;
+            h = (b - a) / n;
+            for (double i = a; i <= b; i += h)
             {
-                mas[i] = rnd.Next(-10, 10);
-                Console.WriteLine(mas[i]);
-            }
-            for(int k = 0; k < 12; k++)
-            {
-                if (mas[k] < 0)
-                {
-                    res *= mas[k];
-                }
-                else
-                {
-                    break;
-                }
-            }
-            if (res == 1)
-            {
-                Console.WriteLine($"Произведение всех элементов до 1 положительного числа равна: 0");
-            }
-            else
-            {
-                Console.WriteLine($"Произведение всех элементов до 1 положительного числа равна:{res}");
+                f = 2 * Math.Cos(5 * i) - 3;
+                Console.WriteLine(i + "                " + f);
             }
         }
     }
