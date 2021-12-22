@@ -20,6 +20,7 @@ namespace ALGORITMIZATION_Rabots
             else result = s.Substring(perviiProbel + 1, len - 1);
             // вывод результата
             Console.WriteLine(result);
+            
         }
     }
 }
