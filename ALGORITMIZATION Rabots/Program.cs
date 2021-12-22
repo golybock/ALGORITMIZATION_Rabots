@@ -6,31 +6,40 @@ namespace ALGORITMIZATION_Rabots
     {
         public static void Main(string[] args)
         {
-            // ввод строки
-            Console.WriteLine("Введите строку");
-            string str = Console.ReadLine();
-            bool test = false;
-            // проверка на наличие нужных символов
-            for (int i = 0; i < str.Length; i++)
+            Console.WriteLine("Введите n(размер матрицы)");
+            int n = int.Parse(Console.ReadLine()); //размер матрицы
+            int[,] matrix = new int[n, n]; //создание матрицы
+            Random rnd = new Random();
+            //генерация исходной матрицы 
+            Console.WriteLine("Исходная матрица: ");
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                if (str[i] == ':' | str[i] == '!')
+                for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    test = true;
+                    matrix[i, j] = rnd.Next(100);
+                    Console.Write(matrix[i, j] + " ");
                 }
 
+                Console.WriteLine();
             }
-            // разделение строки на 2 половины
-            string str1 = str.Substring(0, str.Length/2);
-            string str2 = str.Substring(str.Length / 2);
-            // если в строке есть нужные символы
-            if (test)
+            //обмен значений строки n и столбца n
+            int b = 0;
+            int a = 0;
+            while (b < matrix.GetLength(0) && a < matrix.GetLength(1))
             {
-                Console.WriteLine(str1.Replace(':', '.') + str2.Replace('!', '.') );
+                (matrix[n-1, b], matrix[a,n-1]) = (matrix[a, n-1], matrix[n-1,b]);
+                b++;
+                a++;
             }
-            // если таких символов нет
-            else
+            Console.WriteLine("Матрица с изменениями: ");
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                Console.WriteLine("В строке нет нужных символов");
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    Console.Write(matrix[i, j] + " ");
+                }
+
+                Console.WriteLine();
             }
         }
     }
