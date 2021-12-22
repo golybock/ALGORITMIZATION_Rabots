@@ -6,20 +6,21 @@ namespace ALGORITMIZATION_Rabots
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Введите длину последовательности:");
-            int n = Convert.ToInt32(Console.ReadLine());
-            double[] chisl = new double[n];
-            double sum = 0;
-            Random rnd = new Random();
-            for (int i = 0; i < n; i++)
+            Console.WriteLine("Введите длину ряда чисел");
+            int dlina = Convert.ToInt32(Console.ReadLine());
+            int i = 0;
+            int biba = 0;
+            while (i < dlina)
             {
-                chisl[i] = rnd.Next(0, 10);
-                if (i != 0 && (i%i) == 0)
+                Console.WriteLine($"Введите число");
+                int boba = Convert.ToInt32(Console.ReadLine());
+                i++;
+                if (boba % 2 != 0 && boba < 0)
                 {
-                    sum += chisl[i];
+                    biba++;
                 }
             }
-            Console.WriteLine(sum);
+            Console.WriteLine($"Отрицательный нечетных чисел:{biba}");
         }
     }
 }
