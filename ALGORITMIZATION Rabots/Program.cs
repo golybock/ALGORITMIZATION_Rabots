@@ -6,22 +6,17 @@ namespace ALGORITMIZATION_Rabots
     {
         public static void Main(string[] args)
         {
-            double a, b, c;
-            Console.WriteLine("Введите a:");
-            a = Convert.ToDouble(Console.ReadLine());
+            double x;
+            Console.WriteLine("Введите x:");
+            x = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Введите b:");
-            b = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Введите c:");
-            c = Convert.ToDouble(Console.ReadLine());
-            if (a >= b && b >= c)
+            if (x <= 7)
             {
-                a -= 5;
-                b -= 5;
-                c -= 5;
-                Console.WriteLine($"а = {a}, b = {b}, c = {c}");            }
+                Console.WriteLine($"F(x) = {3 * Math.Pow(x, 2) - 9}");
+            }
             else
             {
-                Console.WriteLine((a + b + c) / 2);
+                Console.WriteLine($"F(x) = {1/(Math.Pow(x, 2)) - 4}");
             }
         }
     }
