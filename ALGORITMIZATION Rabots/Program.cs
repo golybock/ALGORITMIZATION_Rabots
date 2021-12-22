@@ -6,32 +6,33 @@ namespace ALGORITMIZATION_Rabots
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Введите размер квадратной матрицы");
-            int m = int.Parse(Console.ReadLine()); //размер матрицы
-            int[,] matrix = new int[m, m];
             Random rnd = new Random();
-            int sum = 0;
-            Console.WriteLine("Исходная матрица: ");
-            for (int i = 0; i < matrix.GetLength(0); i++)
+            int[] mas = new int[12];
+            int res = 1;
+            for(int i = 0; i < 12; i++)
             {
-                for (int j = 0; j < matrix.GetLength(1); j++)
+                mas[i] = rnd.Next(-10, 10);
+                Console.WriteLine(mas[i]);
+            }
+            for(int k = 0; k < 12; k++)
+            {
+                if (mas[k] < 0)
                 {
-                    matrix[i, j] = rnd.Next(100);
-                    Console.Write(matrix[i, j] + " ");
+                    res *= mas[k];
                 }
-                Console.WriteLine();
-            }
-            for (int i = 0; i < matrix.GetLength(0); i++)
-            {
-                for (int j = i+1; j < matrix.GetLength(1); j++)
+                else
                 {
-                    if (matrix[j, i] % 2 != 0)
-                    {
-                        sum += matrix[j, i];
-                    }
-                }    
+                    break;
+                }
             }
-            Console.WriteLine($"сумма нечетных элементов нижнего треугольника:{sum}");
+            if (res == 1)
+            {
+                Console.WriteLine($"Произведение всех элементов до 1 положительного числа равна: 0");
+            }
+            else
+            {
+                Console.WriteLine($"Произведение всех элементов до 1 положительного числа равна:{res}");
+            }
         }
     }
 }
