@@ -6,7 +6,7 @@ namespace ALGORITMIZATION_Rabots
     {
         public static void Main(string[] args)
         {
-            //пусто мастер
+            //пустой мастер
         }
     }
 }
