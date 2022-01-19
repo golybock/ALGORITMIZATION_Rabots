@@ -9,37 +9,68 @@ namespace ALGORITMIZATION_Rabots
     {
         public static void Main(string[] args)
         {
-            Random rnd = new Random();
-            // создание 2 множеств длинной от 2 до 10 элементов
-            int[] X = new int[rnd.Next(1,10)];
-            int[] Y = new int[rnd.Next(1,10)];
-            int count = 0; //счетчик
-            Console.WriteLine("Первое множество:");
-            // создание 1 множества и его вывод
-            for (int i = 0; i < X.Length; i++)
+
+            Console.WriteLine("Введите значность чисел(n): ");
+            int n = Int32.Parse(Console.ReadLine() ?? string.Empty);
+            Console.WriteLine("Введите первое число: ");
+            int x = Int32.Parse(Console.ReadLine() ?? string.Empty);
+            Console.WriteLine("Введите 2 число: ");
+            int y = Int32.Parse(Console.ReadLine() ?? String.Empty);
+
+            if (NumIsNNumeral(x, n) && NumIsNNumeral(y, n))
             {
-                X[i] = rnd.Next(0, 10);
-                Console.Write(X[i] + " ");
+                if (AllIsNotEven(x) && AllIsNotEven(y))
+                {
+                    Console.WriteLine($"Сумма чисел {x} и {y}: {Sum(x, y)}");
+                    Console.WriteLine($"Число четных чисел в сумме: {HowManyEven(Sum(x, y))}");
+                }
+                else
+                {
+                    Console.WriteLine("В числах есть четные цифры");
+                }
             }
-            Console.WriteLine();
-            Console.WriteLine("Второе множество:");
-            // создание и вывод 2 множества
-            for (int i = 0; i < Y.Length; i++)
+            else
             {
-                Y[i] = rnd.Next(0, 10);
-                Console.Write(Y[i] + " ");
+                Console.WriteLine($"Введены не {n}-значные числа");
             }
-            Console.WriteLine();
-            Console.WriteLine("Кол-во общих четных элементов:");
-            // создание множества из общих элементов множеств X и Y
-            IEnumerable<int> Z = X.Intersect(Y);
-            // подсчет четных элементов в этом множестве
-            foreach (var ident in Z)
+        }
+
+        public static int Sum(int x, int y)
+        {
+            return x + y;
+        }
+
+        public  static bool AllIsNotEven(int a)
+        {
+            foreach (var num in a.ToString())
             {
-                if (ident % 2 == 0) count++;
+                if (num % 2 == 0)
+                {
+                    return false;
+                }
             }
-            // вывод кол-ва четных элементов
-            Console.WriteLine(count);
+
+            return true;
+        }
+
+        public static bool NumIsNNumeral(int x, int n)
+        {
+            return x.ToString().Length == n;
+        }
+
+        public static int HowManyEven(int x)
+        {
+            int count = 0;
+            foreach (var num in x.ToString())
+            {
+                if (num % 2 == 0) count++;
+            }
+
+            return count;
         }
     }
+    
+    
+    
+
 }
