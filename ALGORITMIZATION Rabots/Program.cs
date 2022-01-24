@@ -65,7 +65,6 @@ namespace ALGORITMIZATION_Rabots
             {
                 if (num % 2 == 0) count++;
             }
-
             return count;
         }
     }
