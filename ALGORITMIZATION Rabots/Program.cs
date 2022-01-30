@@ -13,6 +13,7 @@ namespace ALGORITMIZATION_Rabots
             int n = Convert.ToInt32(Console.ReadLine());
             if(n==0) Console.WriteLine("Страны отсутствуют");
             Console.WriteLine("0-Хлеб, 1-Молоко, 2-Мыло, 3-Колбаса, 4-Шоколад");
+            Random rnd = new Random();
             int[,] mas = new int[n,5];
             int bread = 0;
             int milk = 0;
@@ -25,7 +26,7 @@ namespace ALGORITMIZATION_Rabots
                 povtor = "";
                 for(int j=0; j<5;j++)
                 {
-                    mas[i, j] = new Random().Next(0, 5);
+                    mas[i, j] = rnd.Next(0, 5);
                     if (povtor.Contains(mas[i, j].ToString())) continue;
                     povtor += mas[i, j] + " ";
                 }
