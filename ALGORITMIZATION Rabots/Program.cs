@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
+using Microsoft.Win32;
 
 namespace ALGORITMIZATION_Rabots
 {
@@ -9,16 +7,20 @@ namespace ALGORITMIZATION_Rabots
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Введите n:");
-            int n = Int32.Parse(Console.ReadLine() ?? "1");
-            Console.WriteLine($"Факториал {n}: {Factorial(n)}");
+            Console.WriteLine("Введите число:");
+            int a = Int32.Parse(Console.ReadLine() ?? "1");
+            Console.WriteLine("Введите в какую степень его возвести:");
+            int b = Int32.Parse(Console.ReadLine() ?? "1");
+            Console.WriteLine(Pow(a,b));
         }
 
-        public static int Factorial(int n)
+        public static int Pow(int n, int power)
         {
-            if (n == 1) return 1;
-            return n * Factorial(n - 1);
+            if (power == 1)
+                return n;
+            return n * Pow(n, --power);
         }
+        
     }
 }
         
